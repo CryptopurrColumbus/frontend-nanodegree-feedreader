@@ -26,11 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
         it('URL defined', function() {
             for(var feed of allFeeds) {
                 expect(feed).toBeDefined();
@@ -39,11 +34,6 @@ $(function() {
             }
         })
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
         it('name defined', function() {
             for(var feed of allFeeds) {
                 expect(feed).toBeDefined();
@@ -55,18 +45,24 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "The menu" */
+    describe('The menu', function() {
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+        it('is hidden by default', function() {
+            expect($('.menu-hidden').length).toBe(1)
+        })
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+
+        it('visibility toggles when clicked', function() {
+            expect($('.menu-hidden').length).toBe(1)
+            var menuIcon = $('.menu-icon-link')
+            menuIcon.trigger('click')
+            expect($('.menu-hidden').length).toBe(0)
+            // Put back to being hidden
+            menuIcon.trigger('click')
+        })
+
+    });
+
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
