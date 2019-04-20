@@ -38,7 +38,7 @@ $(function() {
             for(var feed of allFeeds) {
                 expect(feed).toBeDefined();
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(null);
+                expect(feed.name).toBeTruthy();
             }
         })
     });
@@ -58,6 +58,7 @@ $(function() {
             expect($('.menu-hidden').length).toBe(0)
             // Put back to being hidden
             menuIcon.trigger('click')
+            expect($('.menu-hidden').length).toBe(1)
         })
 
     });
