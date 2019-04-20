@@ -82,10 +82,12 @@ $(function() {
         var firstEntry = '';
         var secondEntry = '';
         beforeEach(function(done) {
-            loadFeed(0, function(done) {
+            loadFeed(0, function() {
                 var firstEntry = $('.feed').html()
+                loadFeed(1, function() {
+                    done();
+                })
             })
-            loadFeed(1, done)
         });
 
         it('content actually changes', function() {
