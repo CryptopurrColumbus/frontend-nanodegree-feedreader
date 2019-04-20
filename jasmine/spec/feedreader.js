@@ -71,7 +71,7 @@ $(function() {
         });
 
         it('has been loaded', function() {
-            expect($('.feed').length).toBe(1);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         })
 
     });
